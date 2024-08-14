@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Record</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+        <h1 class="list-group-item list-group-item-primary">INSERT_ACCESSRECORD</h1>
+        <form method="POST" class="list-group-item list-group-item-secondary">
+            {% csrf_token %}
+            <div class="list-group-item list-group-item-dark">
+                <label for="na">Name :</label>
+                <select name="name" id="na">
+                    {% for i in WP %}
+                    <option value="{{i.id}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="list-group-item list-group-item-dark">
+                <label for="au">Author :</label>
+                <input type="text" name="author" id="au">
+            </div>
+            <div class="list-group-item list-group-item-dark">
+                <label for="dt">Date :</label>
+                <input type="date" name="date" id="dt">
+            </div>
+            <input type="submit" class="btn btn-outline-info">
+        </form>
+    </center>
+</body>
+</html>

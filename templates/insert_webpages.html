@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpages</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+        <h1 class="list-group-item list-group-item-primary">INSERT_WEBPAGES</h1>
+        <form method="post" class="list-group-item list-group-item-secondary">
+            {% csrf_token %}
+            <div class="list-group-item list-group-item-dark">
+                <label for="topicname">Topic Name :</label>
+                <select name="topicname" id="topicname">
+                    {% for to in LTO %}
+                    <option value="{{ to.topic_name }}">{{ to.topic_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="list-group-item list-group-item-dark">
+                <label for="n">Name :</label>
+                <input type="text" name="name" id="n"><br>
+            </div>
+            <div class="list-group-item list-group-item-dark">
+                <label for="url">URL :</label>
+                <input type="url" name="url" id="url"><br>
+            </div>
+            <div class="list-group-item list-group-item-dark">
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email"><br>
+            </div>
+            <input type="submit" class="btn btn-outline-info">
+        </form>
+    </center>
+</body>
+</html>
